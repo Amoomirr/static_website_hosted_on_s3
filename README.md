@@ -1,19 +1,23 @@
 # Static_Website_Hosted_On_S3
 
 1. Created S3 Bucket for Static Website
+   
 Created a new S3 bucket named amir-static-website-project
 Set bucket to "Block all public access" = OFF to allow public hosting.
 Uploaded index.html and image related to the website.
 
 3. Resolved 403 - Access Denied
+   
 Applied ACL (Access Control List) to make objects publicly readable.
 Enabled "Make public using ACL" on uploaded files.
 
 3. Resolved 404 - Not Found
+   
 Enabled Static Website Hosting in the bucket's properties.
 Specified index.html.
 
-4. Created IAM User with Least Privilege
+5. Created IAM User with Least Privilege
+   
 Created IAM user: amir-dev.
 Attached a custom IAM policy allowing :-
 
