@@ -15,16 +15,20 @@ Specified index.html.
 
 4. Created IAM User with Least Privilege
 Created IAM user: amir-dev.
-Attached a custom IAM policy allowing-
+Attached a custom IAM policy allowing :-
 
 {
   "Version": "2012-10-17",
   "Statement": [
+  
     {
+    
       "Sid": "AllowS3UploadAndRead",
       "Effect": "Allow",
       "Action": [
+      
         "s3:PutObject",
+        
         "s3:GetObject"
     ],
       "Resource": "arn:aws:s3:::amir-static-website-project/*"
