@@ -1,4 +1,4 @@
-# static_website_hosted_on_s3
+# Static_Website_Hosted_On_S3
 
 1. Created S3 Bucket for Static Website
 Created a new S3 bucket named amir-static-website-project
