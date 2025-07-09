@@ -1,0 +1,2 @@
+Hosted a static HTML website on S3 by uploading web files to a custom bucket. Resolved 403 Access Denied by making objects public using ACL and 404 Not Found by enabling S3 Static Website Hosting.
+Created IAM user amir-dev with a custom policy allowing only ListBucket and PutObject for this bucket. Configured a matching bucket policy to allow uploads and explicitly deny DeleteObject, enforcing least privilege and minimizing root user access.
