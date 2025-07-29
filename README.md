@@ -74,21 +74,23 @@ Used **IAM Policy Simulator** to test:
 
 🧱 Step 1: Architecture Overview
 S3 Static Website Architecture Diagram
-https://github.com/user-attachments/assets/b9111f6a-5240-4a81-8c82-87e429ae982c
+<img width="1944" height="908" alt="s3-architecture" src="https://github.com/user-attachments/assets/b9111f6a-5240-4a81-8c82-87e429ae982c" />
 
 ⚠️ Step 2: Common Errors Encountered
 404 Not Found Error due to Missing Index Document
-https://github.com/user-attachments/assets/5d59444a-f599-4f05-8075-3b878bc9ce1c
+<img width="1055" height="363" alt="Error_404NotFound" src="https://github.com/user-attachments/assets/5d59444a-f599-4f05-8075-3b878bc9ce1c" />
+
 
 404 Error Solved by Enabling Static Website Hosting
-https://github.com/user-attachments/assets/cbd20e70-5cf2-43ca-892a-64813a98afc4
+<img width="1521" height="675" alt="404_Solved" src="https://github.com/user-attachments/assets/cbd20e70-5cf2-43ca-892a-64813a98afc4" />
 
 403 Forbidden Error (Access Denied)
-https://github.com/user-attachments/assets/a699d43c-cf53-495b-b27d-ddac9878be41
+<img width="1298" height="372" alt="403Forbidden Error" src="https://github.com/user-attachments/assets/a699d43c-cf53-495b-b27d-ddac9878be41" />
 
 403 Error Resolved with Proper Bucket Policy
-https://github.com/user-attachments/assets/ad1eb365-765f-48a8-af4e-02fb068a379f
+<img width="1521" height="762" alt="403_Solved" src="https://github.com/user-attachments/assets/ad1eb365-765f-48a8-af4e-02fb068a379f" />
 
 🔐 Step 3: Access Configuration
 Public Read Access Bucket Policy JSON
-https://github.com/user-attachments/assets/556d8a8a-f0c3-4bed-84a2-b190b766a45c
+<img width="813" height="630" alt="S3-Bucket-Policy" src="https://github.com/user-attachments/assets/556d8a8a-f0c3-4bed-84a2-b190b766a45c" />
+
