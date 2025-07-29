@@ -1,77 +1,94 @@
-# Static_Website_Hosted_On_S3
+# 🧾 Static Website Hosting on Amazon S3 with IAM-Based Access Control
 
-Website URL :- http://amir-static-website-project.s3-website.ap-south-1.amazonaws.com/
+This project demonstrates how to host a static website on **Amazon S3** while implementing secure **IAM-based access control**, following the Principle of Least Privilege.
 
-1. Created a S3 Bucket for Static Website
-   
-Created a new S3 bucket named amir-static-website-project
-Set bucket to "Block all public access" = OFF to allow public hosting.
-Uploaded index.html and image related to the website.
+---
 
-3. Resolved 403 - Access Denied
-   
-Applied ACL (Access Control List) to make objects publicly readable.
-Enabled "Make public using ACL" on uploaded files.
+## 📌 Project Overview
 
-3. Resolved 404 - Not Found
-   
-Enabled Static Website Hosting in the bucket's properties.
-Specified index.html.
+- ✅ Hosted a **static website** using S3's static website hosting feature.
+- ✅ Enforced **fine-grained access control** using **IAM policies and groups**.
+- ✅ Ensured **upload-only** access for IAM users without delete permissions.
+- ✅ Resolved common access issues like **403 Forbidden** and **404 Not Found**.
+- ✅ Simulated and verified IAM permissions using the **AWS IAM Policy Simulator**.
 
-4. Created IAM User with Least Privilege
-   
-Created IAM user: amir-dev.
-Attached a custom IAM policy allowing :-
+---
 
-{
-  "Version": "2012-10-17",
-  "Statement": [
-  
-    {
-    
-      "Sid": "AllowS3UploadAndRead",
-      "Effect": "Allow",
-      "Action": [
-      
-        "s3:PutObject",
-        
-        "s3:GetObject"
-    ],
-      "Resource": "arn:aws:s3:::amir-static-website-project/*"
-    },
-    {
-      "Sid": "AllowBucketListing",
-      "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::amir-static-website-project"
-    }
-  ]
-}
+## 🧱 Tech Stack
 
+- **AWS S3** – Static website hosting, object storage, bucket configuration.
+- **AWS IAM** – Role-based access control, policies, groups, and MFA.
+- **AWS IAM Policy Simulator** – Validated custom IAM policy actions.
 
-5 Created a Bucket Policy for amir-dev user to allow putobject but deny deleteobject enforcing least privileage :-
+---
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-        
-            "Sid": "AllowPutObjectOnlyFromThisUser",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::322492479923:user/amir-dev"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::amir-static-website-project/*"
-        },
-        {
-            "Sid": "DenyDeleteObject",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "arn:aws:iam::322492479923:user/amir-dev"
-            },
-            "Action": "s3:DeleteObject",
-            "Resource": "arn:aws:s3:::amir-static-website-project/*"
-        }
-    ]
-}
+## 🔧 Key Features
+
+### ✅ Amazon S3
+- Static website hosting enabled with `index.html` as landing page.
+- Bucket versioning and lifecycle policies explored.
+- Public access configured (disabled block public access).
+- Object-level metadata and unique key-based file storage.
+
+### ✅ IAM Access Control
+- Created custom IAM Policy (`S3-StaticWebsite-UploadPolicy`) allowing:
+  - `ListAllMyBuckets`
+  - `ListBucket`
+  - `PutObject`
+  - ❌ Denied `DeleteObject`
+- Created IAM Group: `S3-StaticWebsite-Uploaders`
+- Created IAM User: `amir` with **MFA enabled**, added to the group.
+
+### ✅ Access Testing
+Used **IAM Policy Simulator** to test:
+- ✅ `s3:ListAllMyBuckets`
+- ✅ `s3:ListBucket`
+- ✅ `s3:PutObject`
+- ❌ `s3:DeleteObject` (denied by design)
+
+---
+
+## 🔗 Website URL
+
+🌐 [Visit the Website](https://amir-static-website-project.s3.ap-south-1.amazonaws.com/index.html)
+
+---
+
+## 🛡️ Security Practices
+
+- Enforced **MFA (Multi-Factor Authentication)** for IAM user login.
+- Followed the **Principle of Least Privilege** for all IAM roles and actions.
+
+---
+
+## ✅ Outcome
+
+- Successfully deployed a static website on Amazon S3.
+- Implemented secure and minimal access permissions using IAM.
+- Ensured that sensitive operations like object deletion remain denied.
+- Validated all actions through the AWS IAM Policy Simulator.
+
+---
+
+## 📁 Files
+
+🧱 Step 1: Architecture Overview
+S3 Static Website Architecture Diagram
+https://github.com/user-attachments/assets/b9111f6a-5240-4a81-8c82-87e429ae982c
+
+⚠️ Step 2: Common Errors Encountered
+404 Not Found Error due to Missing Index Document
+https://github.com/user-attachments/assets/5d59444a-f599-4f05-8075-3b878bc9ce1c
+
+404 Error Solved by Enabling Static Website Hosting
+https://github.com/user-attachments/assets/cbd20e70-5cf2-43ca-892a-64813a98afc4
+
+403 Forbidden Error (Access Denied)
+https://github.com/user-attachments/assets/a699d43c-cf53-495b-b27d-ddac9878be41
+
+403 Error Resolved with Proper Bucket Policy
+https://github.com/user-attachments/assets/ad1eb365-765f-48a8-af4e-02fb068a379f
+
+🔐 Step 3: Access Configuration
+Public Read Access Bucket Policy JSON
+https://github.com/user-attachments/assets/556d8a8a-f0c3-4bed-84a2-b190b766a45c
