@@ -94,3 +94,7 @@ S3 Static Website Architecture Diagram
 Public Read Access Bucket Policy JSON
 <img width="813" height="630" alt="S3-Bucket-Policy" src="https://github.com/user-attachments/assets/556d8a8a-f0c3-4bed-84a2-b190b766a45c" />
 
+WEBSITE SCREENSHOT
+<img width="1911" height="1007" alt="Final" src="https://github.com/user-attachments/assets/35376afc-1f8c-46b4-827c-6f515461e790" />
+
+
